@@ -13,8 +13,3 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
-    // dump(config('app.locale'));
-    // dump(config('database.connections.mysql'));
-    dump(config('costom.costom', 'test'));
-});
