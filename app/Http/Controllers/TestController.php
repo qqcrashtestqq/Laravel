@@ -8,6 +8,7 @@ class TestController extends Controller
 {
     public function index(): string
     {
-        return 'Hello World';
+        return 'Hello World 1 ';
     }
+
 }

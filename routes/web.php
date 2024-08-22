@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::resource('test', TestController::class);
 
+//resource routs user (create, update , delete )
+Route::resource('user', UserController::class);
