@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\RegisterUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('test', TestController::class);
+
 
 //resource routs user (create, update , delete )
-Route::resource('user', UserController::class);
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::resource('users', RegisterUserController::class);
