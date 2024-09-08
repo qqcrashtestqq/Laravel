@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\CardProductController;
 use App\Http\Controllers\RegisterUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/test', function () {
+   return view('cardProduct');
+});
+
+//routs for product cards
+Route::resource('products', CardProductController::class);
+
+// routs for users
 Route::resource('users', RegisterUserController::class);
+
+
