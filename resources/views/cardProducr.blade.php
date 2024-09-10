@@ -11,7 +11,10 @@
         <input type="file" name="image">
 
         <label for="price">Price:</label>
-        <input name="price" type="text" placeholder="price">
+        <input name="price" type="number" step="0.001" min="0" placeholder="price">
+        @error('price')
+        <p>{{ $message }}</p>
+        @enderror
 
         <button type="submit">Create</button>
     </form>

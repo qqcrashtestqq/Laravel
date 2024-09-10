@@ -12,4 +12,6 @@ class CardProduct extends Model
     protected $fillable = [
         'title', 'description', 'image', 'price'
     ];
+
+    protected $table = 'cards_product';
 }

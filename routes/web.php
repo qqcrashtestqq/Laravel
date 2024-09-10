@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-   return view('cardProduct');
+   return view('cardProducr');
 });
 
 //routs for product cards
