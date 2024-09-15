@@ -3,12 +3,55 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAuthUserRequest;
+use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Passport\Client as OClient;
 
 class AuthControllerUser extends Controller
 {
+    public function login(StoreAuthUserRequest $request)
+    {
+        $_is_creds_valid = false;
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user && Hash::check($request->password, $user->password)) {
+            $_is_creds_valid = true;
+        }
+
+        if($_is_creds_valid){
+
+            $token = $user->createToken('Token Name')->accessToken;
+
+
+//            $oClient = OClient::where('password_client', 1)
+//                ->where('provider', 'users')
+//                ->first();
+//
+//            $http = new Client();
+//
+//            $response = $http->request('POST', config('app.local_app_url') . '/oauth/token', [
+//                'form_params' => [
+//                    'grant_type' => 'password',
+//                    'client_id' => $oClient->id,
+//                    'client_secret' => $oClient->secret,
+//                    'username' => $user->email,
+//                    'password' => $user->password,
+//                    'scopes' => []
+//                ],
+//            ]);
+//
+//            $result = json_decode((string)$response->getBody(), true);
+
+            return $token;
+        }
+
+    }
+
     /**
      * Display a listing of the resource.
      */

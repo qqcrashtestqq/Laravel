@@ -14,7 +14,7 @@ class CardProductController extends Controller
      */
     public function index()
     {
-        //
+        return 'success';
     }
 
     /**

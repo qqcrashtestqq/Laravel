@@ -22,3 +22,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::resource('auth-user', AuthControllerUser::class);
+
+Route::post('login', [AuthControllerUser::class, 'login']);
+
+Route::middleware('auth:api')->group(function () {
+
+    Route::prefix('cardProducts')->group(function () {
+        Route::get('/', [CardProductController::class, 'index']);
+    });
+
+});
